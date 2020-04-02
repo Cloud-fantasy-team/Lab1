@@ -1,5 +1,5 @@
 CC=g++
-CXXFLAGS=-std=c++14 -Werror
+CXXFLAGS=-std=c++14 -Wall -Werror
 
 thread_pool_test: src/thread_pool_test.cc src/thread_pool.h
 	@ printf "Compiling and testing thread pool...\n"
