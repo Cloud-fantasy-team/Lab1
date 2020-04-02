@@ -56,11 +56,13 @@ public:
 
     ~thread_pool()
     {
+        // Set done.
         {
             std::unique_lock<std::mutex> lock(m);
             done = true;
         }
 
+        // Reap child threads.
         condition.notify_all();
         for (auto &t : workers)
             t.join();
@@ -74,12 +76,14 @@ public:
     >
     std::future<ret_type> add_task(F&& f, Args&&... args)
     {
-        // Wrap [ret_type F(Args...)] into [ret_type F2()].
+        // Turn [ret_type F(Args...)] into [ret_type F2()] and wrap it into
+        // a shared ptr.
         auto task = std::make_shared<std::packaged_task<ret_type()>>(
             std::bind(std::forward<F>(f), std::forward<Args>(args)...)
         );
 
         std::future<ret_type> p = task->get_future();
+        // Acquire lock.
         {
             std::unique_lock<std::mutex> lock(m);
 

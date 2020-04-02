@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.Th": "cpp",
+        "functional": "cpp",
+        "iostream": "cpp"
+    }
+}
