@@ -108,7 +108,6 @@ int main()
             {
                 int board[DIM][DIM];
 
-                std::cout << "task added" << std::endl;
                 deserialize_board(line, board);
                 if (solve_sudoku_basic(board))
                 {
