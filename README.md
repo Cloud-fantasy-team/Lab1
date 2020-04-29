@@ -1,6 +1,9 @@
 Lab 1: "Super fast" sudoku solving
 ----------------------------------
 
+Moved to https://github.com/Cloud-fantasy-team/CloudComputingLabs
+=================================================================
+
 This is the first lab of the course *HNU Cloud Computing: Spring 2020*. See the repo [CloudComputingLabs/Lab1](https://github.com/1989chenguo/CloudComputingLabs/tree/master/Lab1) for a complete description. 
 
 Structure
